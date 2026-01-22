@@ -1,0 +1,14 @@
+import spacy
+from skills import SKILLS
+
+nlp = spacy.load("en_core_web_sm")
+
+def extract_skills(text: str):
+    text = text.lower()
+    extracted_skills = []
+
+    for skill in SKILLS:
+        if skill in text:
+            extracted_skills.append(skill)
+
+    return list(set(extracted_skills))
